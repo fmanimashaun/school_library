@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # The Person class represents a person with an id, name, and age.
 # The id is a unique identifier for the person.
 # The name is the name of the person.
