@@ -86,7 +86,7 @@ To run this project, ensure you have the following installed:
 Clone the repository to your local machine:
 
 ```bash
-git clone [repository_url]
+git clone https://github.com/fmanimashaun/school_library.git
 
 ### Usage
 
@@ -115,8 +115,7 @@ Then, load the required files and start using the classes.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Create more filters or options.
-- Add frontend code
+- [Add your future feature ideas here.]
 
 <p align="right"><a href="#readme-top">👆</a></p>
 
@@ -128,7 +127,7 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the issues page.
 
-https://github.com/fmanimashaun/{}/issues
+https://github.com/fmanimashaun/school_library/issues
 
 <p align="right"><a href="#readme-top">👆</a></p>
 
