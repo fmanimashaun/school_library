@@ -14,7 +14,7 @@ class Person
   end
 
   def can_use_services?
-    @parent_permission || @age >= 18
+    @parent_permission || of_age?
   end
 
   private
