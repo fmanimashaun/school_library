@@ -87,10 +87,12 @@ Clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/fmanimashaun/school_library.git
+``
 
 ### Usage
 
 To run the program, you can use a Ruby interpreter. For example, to interact with the code, use the following:
+
 ```ruby
 irb
 ```
