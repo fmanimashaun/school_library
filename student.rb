@@ -4,7 +4,7 @@ require './person'
 
 # Student class
 # The Student class represents a student in a school.
-# The student has a name, age, and grade.
+# The student has a name, age, and classroom.
 # The student inherits from Person class.
 class Student < Person
   def initialize(name, age, classroom)
