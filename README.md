@@ -7,6 +7,7 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+  - [project requirements](#project-requirements)
 - [🛠 Built With](#built-with)
   - [Tech Stack](#tech-stack)
 - [💻 Getting Started](#getting-started)
@@ -25,6 +26,11 @@
 ## 📖 School Library command-Line App <a name="about-project"></a>
 
 **School Library App** is a Ruby project focused on implementing classes and objects to manage a school library. This initial step involves creating classes to represent students and teachers.
+
+### Project requirements <a name="project-requirements"></a>
+- Create class `Person` with  the following:
+- Create class `Student` with the following:
+- Create class `Teacher` with the following:
 
 ## 🛠 Built With <a name="built-with"></a>
 
