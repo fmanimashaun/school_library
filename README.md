@@ -87,7 +87,7 @@ Clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/fmanimashaun/school_library.git
-``
+```
 
 ### Usage
 
