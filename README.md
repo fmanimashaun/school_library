@@ -7,9 +7,9 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [project requirements](#project-requirements)
 - [🛠 Built With](#built-with)
   - [Tech Stack](#tech-stack)
+  - [Key Features](#key-features)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -27,23 +27,6 @@
 
 **School Library App** is a Ruby project focused on implementing classes and objects to manage a school library. This initial step involves creating classes to represent students and teachers.
 
-### Project requirements <a name="project-requirements"></a>
-- Create class `Person` with  the following:
-  - Instance vars: `@id`, `@name`, and `@age`.
-  - Constructor with `name`,  `age`, and `parent_permission` as parameter. `name` and `parent_permission` are optional and have default values of `"Unknown"` and `true`.
-  - Getters for `@id`, `@name`, and `@age`.
-  - Setters for `@name` and `@age`.
-  - Private method `of_age?` that returns `true` if `@age` is greater or equal to 18 and `false` otherwise.
-  - Public method `can_use_services?` that returns `true` if person is of age or if they have permission from parents.
-- Create class `Student` with the following:
-  - Inherits from `Person`.
-  - Constructor extends parent's constructor by adding `@classroom` and a parameter for it.
-  - Method `play_hooky` that returns `"¯\(ツ)/¯"`.
-- Create class `Teacher` with the following:
-  - Inherits from `Person`.
-  - Constructor extends parent's constructor by adding `@specialization` and a parameter for it.
-  - Override `can_use_services?` so it always returns `true`.
-- Each class are be saved in a separate file.
 ## 🛠 Built With <a name="built-with"></a>
 
 - Ruby
@@ -73,9 +56,24 @@
 
 <!-- Features -->
 
-<p align="right"><a href="#readme-top">👆</a></p>
+### Key Feature <a name="key-features"></a>
 
-<!-- LIVE DEMO -->
+- Create class `Person` with  the following:
+  - Instance vars: `@id`, `@name`, and `@age`.
+  - Constructor with `name`,  `age`, and `parent_permission` as parameter. `name` and `parent_permission` are optional and have default values of `"Unknown"` and `true`.
+  - Getters for `@id`, `@name`, and `@age`.
+  - Setters for `@name` and `@age`.
+  - Private method `of_age?` that returns `true` if `@age` is greater or equal to 18 and `false` otherwise.
+  - Public method `can_use_services?` that returns `true` if person is of age or if they have permission from parents.
+- Create class `Student` with the following:
+  - Inherits from `Person`.
+  - Constructor extends parent's constructor by adding `@classroom` and a parameter for it.
+  - Method `play_hooky` that returns `"¯\(ツ)/¯"`.
+- Create class `Teacher` with the following:
+  - Inherits from `Person`.
+  - Constructor extends parent's constructor by adding `@specialization` and a parameter for it.
+  - Override `can_use_services?` so it always returns `true`.
+- Each class are be saved in a separate file.
 
 <p align="right"><a href="#readme-top">👆</a></p>
 
@@ -158,5 +156,13 @@ If you like this project leave a start for it.
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I'd like to thank Microverse for helping us in the journey to become a Fullstack developer.
+
+<p align="right"><a href="#readme-top">👆</a></p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right"><a href="#readme-top">👆</a></p>
