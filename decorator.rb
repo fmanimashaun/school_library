@@ -1,4 +1,4 @@
-require 'nameable'
+require './nameable'
 
 # create a decorator for the Nameable class
 class Decorator < Nameable
