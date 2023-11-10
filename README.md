@@ -34,23 +34,9 @@
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
-  <summary>Client</summary>
-  <ul>
-   <li>N/A</li>
-  </ul>
-</details>
-
-<details>
   <summary>Server</summary>
   <ul>
     <li>Ruby</li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li>N/A</li>
   </ul>
 </details>
 

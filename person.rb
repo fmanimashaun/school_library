@@ -1,4 +1,5 @@
 require './nameable'
+require './rental'
 
 # The Person class represents a person with an id, name, and age.
 # The id is a unique identifier for the person.
@@ -6,7 +7,7 @@ require './nameable'
 # The age is the age of the person.
 class Person < Nameable
   attr_reader :id
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :rentals
 
   def initialize(age, name = 'unknown', parent_permission: true)
     super()
@@ -14,6 +15,7 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
 
   def can_use_services?
@@ -22,6 +24,10 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def add_rental(book, date)
+    Rental.new(date, book, self)
   end
 
   private
