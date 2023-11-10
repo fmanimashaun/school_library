@@ -1,4 +1,5 @@
 require './person'
+require './classroom'
 
 # Student class
 # The Student class represents a student in a school.
@@ -7,7 +8,14 @@ require './person'
 class Student < Person
   def initialize(name, age, parent_permission, classroom)
     super(name, age, parent_permission)
+    self.classroom = classroom
+  end
+
+  attr_accessor :classroom
+
+  def classroom=(classroom)
     @classroom = classroom
+    classroom.add_student(self)
   end
 
   def play_hooky
