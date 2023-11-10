@@ -1,3 +1,4 @@
+# The class Classroom represents a classroom. It holds a label and a list of students.
 class Classroom
   attr_accessor :label
   attr_reader :students
