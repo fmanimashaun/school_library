@@ -11,7 +11,7 @@ class Student < Person
     self.classroom = classroom
   end
 
-  attr_accessor :classroom
+  attr_reader :classroom
 
   def classroom=(classroom)
     @classroom = classroom
