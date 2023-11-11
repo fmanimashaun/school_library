@@ -1,7 +1,5 @@
 require './rental'
 
-# The Book class represents a book.
-# It holds the title, author and a list of rentals.
 class Book
   attr_accessor :title, :author, :rentals
 
