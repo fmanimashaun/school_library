@@ -146,7 +146,7 @@ class App
       person_index = gets.chomp.to_i - 1
       person = @people[person_index]
 
-      print 'Enter the rental date (YYYY-MM-DD): '
+      print 'Enter the rental date (YYYY/MM/DD): '
       date = gets.chomp
 
       rental = Rental.new(date, book, person)
