@@ -1,12 +1,6 @@
-# frozen_string_literal: true
-
 require './nameable'
 require './rental'
 
-# The Person class represents a person with an id, name, and age.
-# The id is a unique identifier for the person.
-# The name is the name of the person.
-# The age is the age of the person.
 class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age, :rentals
