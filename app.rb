@@ -129,25 +129,15 @@ class App
     return puts "\nNo books available." if @books.empty?
     return puts "\nNo people available." if @people.empty?
 
-      puts "\nSelect a book from the following list by number#{'[0 - ' + (@books.length - 1).to_s + ']' unless @books.length == 1}"
-      list_books
+    book = select_book
+    person = select_person
 
-      book_index = gets.chomp.to_i
-      book = @books[book_index]
+    print 'Enter the rental date (YYYY/MM/DD): '
+    date = gets.chomp
+    rental = Rental.new(date, book, person)
+    @rentals << rental
 
-      puts "\nSelect a person from the following list by number#{' [0 - ' + (@people.length - 1).to_s + ']' unless @people.length == 1} (not id)"
-      list_people
-
-      person_index = gets.chomp.to_i
-      person = @people[person_index]
-
-      print 'Enter the rental date (YYYY/MM/DD): '
-      date = gets.chomp
-
-      rental = Rental.new(date, book, person)
-      @rentals << rental
-
-      puts "\nRental created successfully."
+    puts "\nRental created successfully."
   end
 
   def rental_list
@@ -155,7 +145,6 @@ class App
     return puts 'No rentals available.' if @rentals.empty?
 
     list_people
-
 
     print 'ID of person: '
     person_id = gets.chomp.to_i
@@ -169,5 +158,37 @@ class App
         puts "Person: #{rental.person.name}, Book: #{rental.book.title}, Rental date: #{rental.date}"
       end
     end
+  end
+
+  def select_person
+    loop do
+      puts "\nSelect a person from the following list by number#{' [0 - ' + (@people.length - 1).to_s + ']' unless @people.length == 1} (not id)"
+      list_people
+      person_index = gets.chomp.to_i
+
+      if valid_index?(person_index, @people)
+        return @people[person_index]
+      else
+        puts "\nInvalid selection. Please enter a valid number."
+      end
+    end
+  end
+
+  def select_book
+    loop do
+      puts "\nSelect a book from the following list by number#{'[0 - ' + (@books.length - 1).to_s + ']' unless @books.length == 1}"
+      list_books
+      book_index = gets.chomp.to_i
+
+      if valid_index?(book_index, @books)
+        return @books[book_index]
+      else
+        puts "\nInvalid selection. Please enter a valid number."
+      end
+    end
+  end
+
+  def valid_index?(index, array)
+    index.between?(0, array.length - 1)
   end
 end
