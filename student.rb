@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './person'
 require './classroom'
 
@@ -6,7 +8,7 @@ require './classroom'
 # The student has a name, age, and classroom.
 # The student inherits from Person class.
 class Student < Person
-  def initialize(age, name, parent_permission = true)
+  def initialize(age, name, parent_permission: true)
     super(age, name, parent_permission: parent_permission)
   end
 

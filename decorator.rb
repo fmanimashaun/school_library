@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './nameable'
 
 # create a decorator for the Nameable class

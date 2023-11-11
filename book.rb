@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './rental'
 
 # The Book class represents a book.

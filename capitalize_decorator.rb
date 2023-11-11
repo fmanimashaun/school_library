@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './decorator'
 
 # create capitalization decorator that returns a capitalized name

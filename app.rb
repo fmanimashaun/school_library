@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './person'
 require './student'
 require './teacher'
@@ -40,7 +42,7 @@ class App
     else
       puts "\n"
       @people.each_with_index do |person, index|
-        if person.class == Student
+        if person.instance_of?(Student)
           puts "#{index}) [Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
         else
           puts "#{index}) [Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
@@ -99,7 +101,7 @@ class App
     print 'Age: '
     age = gets.chomp.to_i
 
-    print "Specialization: "
+    print 'Specialization: '
     specialization = gets.chomp
 
     teacher = Teacher.new(age, name, specialization)
@@ -162,29 +164,29 @@ class App
 
   def select_person
     loop do
-      puts "\nSelect a person from the following list by number#{' [0 - ' + (@people.length - 1).to_s + ']' unless @people.length == 1} (not id)"
+      puts "\nSelect a person from the following list by number#{unless @people.length == 1
+                                                                   " [0 - #{@people.length - 1}]"
+                                                                 end} (not id)"
       list_people
       person_index = gets.chomp.to_i
 
-      if valid_index?(person_index, @people)
-        return @people[person_index]
-      else
-        puts "\nInvalid selection. Please enter a valid number."
-      end
+      return @people[person_index] if valid_index?(person_index, @people)
+
+
+      puts "\nInvalid selection. Please enter a valid number."
     end
   end
 
   def select_book
     loop do
-      puts "\nSelect a book from the following list by number#{'[0 - ' + (@books.length - 1).to_s + ']' unless @books.length == 1}"
+      puts "\nSelect a book from the following list by number#{"[0 - #{@books.length - 1}]" unless @books.length == 1}"
       list_books
       book_index = gets.chomp.to_i
 
-      if valid_index?(book_index, @books)
-        return @books[book_index]
-      else
-        puts "\nInvalid selection. Please enter a valid number."
-      end
+      return @books[book_index] if valid_index?(book_index, @books)
+
+
+      puts "\nInvalid selection. Please enter a valid number."
     end
   end
 

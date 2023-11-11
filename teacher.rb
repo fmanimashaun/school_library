@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './person'
 
 # The Teacher class represents a teacher
