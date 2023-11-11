@@ -6,8 +6,8 @@ require './person'
 # from the Person class.
 # The teacher can use the services that
 class Teacher < Person
-  def initialize(name, age, parent_permission, specialization)
-    super(name, age, parent_permission)
+  def initialize(name, age, specialization)
+    super(name, age)
     @specialization = specialization
   end
 
