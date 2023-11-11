@@ -170,7 +170,6 @@ class App
 
       return @people[person_index] if valid_index?(person_index, @people)
 
-
       puts "\nInvalid selection. Please enter a valid number."
     end
   end
@@ -182,7 +181,6 @@ class App
       book_index = gets.chomp.to_i
 
       return @books[book_index] if valid_index?(book_index, @books)
-
 
       puts "\nInvalid selection. Please enter a valid number."
     end
