@@ -27,8 +27,8 @@ class App
       puts "\nNo books available."
     else
       puts "\n"
-      @books.each do |book|
-        puts "Title: '#{book.title}', Author: '#{book.author}'"
+      @books.each_with_index do |book, index|
+        puts "#{index}) Title: '#{book.title}', Author: '#{book.author}'"
       end
     end
   end
@@ -39,11 +39,11 @@ class App
       puts "\nNo people available."
     else
       puts "\n"
-      @people.each do |person|
+      @people.each_with_index do |person, index|
         if person.class == Student
-          puts "[Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+          puts "#{index}) [Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
         else
-          puts "[Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+          puts "#{index}) [Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
         end
       end
     end
@@ -80,11 +80,11 @@ class App
     when 'Y'
       student = Student.new(age, name)
       @people << student
-      puts "\nStudent with parent permission created successfully."
+      puts "\nPerson created successfully"
     when 'N'
       student = Student.new(age, name, parent_permission: false)
       @people << student
-      puts "\nStudent without parent permission created successfully."
+      puts "\nPerson created successfully"
     else
       puts "\nInvalid option. Student not created."
     end
@@ -105,7 +105,7 @@ class App
     teacher = Teacher.new(age, name, specialization)
     @people << teacher
 
-    puts "\nTeacher created successfully."
+    puts "\nPerson created successfully"
   end
 
   def create_book
@@ -120,7 +120,7 @@ class App
     book = Book.new(title, author)
     @books << book
 
-    puts "\nBook created successfully!"
+    puts "\nBook created successfully"
   end
 
   def create_rental
@@ -129,21 +129,16 @@ class App
     return puts "\nNo books available." if @books.empty?
     return puts "\nNo people available." if @people.empty?
 
-      puts "\nSelect a book from the following list#{' using [1 - ' + @books.length.to_s + ']' unless @books.length == 1}"
+      puts "\nSelect a book from the following list by number#{'[0 - ' + (@books.length - 1).to_s + ']' unless @books.length == 1}"
+      list_books
 
-      @books.each_with_index do |book, index|
-        puts "#{index + 1} - Title: '#{book.title}', Author: '#{book.author}'"
-      end
-
-      book_index = gets.chomp.to_i - 1
+      book_index = gets.chomp.to_i
       book = @books[book_index]
 
-      puts "\nSelect a person from the following list#{' using [1 - ' + @people.length.to_s + ']' unless @people.length == 1}"
-      @people.each_with_index do |person, index|
-        puts "#{index + 1} - Name: #{person.name}"
-      end
+      puts "\nSelect a person from the following list by number#{' [0 - ' + (@people.length - 1).to_s + ']' unless @people.length == 1} (not id)"
+      list_people
 
-      person_index = gets.chomp.to_i - 1
+      person_index = gets.chomp.to_i
       person = @people[person_index]
 
       print 'Enter the rental date (YYYY/MM/DD): '
@@ -159,12 +154,10 @@ class App
     clear
     return puts 'No rentals available.' if @rentals.empty?
 
-    @people.each do |person|
-      puts "Id: #{person.id} Name: #{person.name}"
-    end
+    list_people
 
 
-    print 'Enter the person ID: '
+    print 'ID of person: '
     person_id = gets.chomp.to_i
 
     rentals = @rentals.select { |rental| rental.person.id == person_id }
