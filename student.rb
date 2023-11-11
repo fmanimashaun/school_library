@@ -6,9 +6,8 @@ require './classroom'
 # The student has a name, age, and classroom.
 # The student inherits from Person class.
 class Student < Person
-  def initialize(name, age, parent_permission, classroom = nil)
-    super(name, age, parent_permission)
-    self.classroom = classroom unless classroom.nil?
+  def initialize(age, name, parent_permission = true)
+    super(age, name, parent_permission: parent_permission)
   end
 
   attr_reader :classroom
