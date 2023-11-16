@@ -62,7 +62,6 @@ class App
   end
 
   def create_student
-
     print 'Name: '
     name = gets.chomp
 
@@ -87,7 +86,6 @@ class App
   end
 
   def create_teacher
-
     print 'Name: '
     name = gets.chomp
 
@@ -104,7 +102,6 @@ class App
   end
 
   def create_book
-
     print 'Enter the book title: '
     title = gets.chomp
 
@@ -118,7 +115,6 @@ class App
   end
 
   def create_rental
-
     return puts "\nNo books available." if @books.empty?
     return puts "\nNo people available." if @people.empty?
 
