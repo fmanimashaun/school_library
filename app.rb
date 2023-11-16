@@ -9,16 +9,21 @@ require './capitalize_decorator'
 require './trimmer_decorator'
 
 class App
+  NAME_PROMPT = 'Name: '.freeze
+  AGE_PROMPT = 'Age: '.freeze
+  PERMISSION_PROMPT = 'Has parent permission? [Y/N]: '.freeze
+  SPECIALIZATION_PROMPT = 'Specialization: '.freeze
+  BOOK_TITLE_PROMPT = 'Enter the book title: '.freeze
+  BOOK_AUTHOR_PROMPT = 'Enter the book author: '.freeze
+  RENTAL_DATE_PROMPT = 'Enter the rental date (YYYY/MM/DD): '.freeze
+  PEOPLE_TYPE_PROMPT = 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '.freeze
+
   attr_accessor :people, :books, :rentals
 
   def initialize
     @people = []
     @books = []
     @rentals = []
-  end
-
-  def clear
-    system('clear')
   end
 
   def list_books
@@ -66,13 +71,13 @@ class App
 
   def create_student
     print 'Name: '
-    name = gets.chomp
+    name = get_user_input(NAME_PROMPT)
 
     print 'Age: '
-    age = gets.chomp.to_i
+    age = get_user_input(AGE_PROMPT).to_i
 
     print 'Has parent permission? [Y/N]: '
-    permission = gets.chomp.strip.upcase
+    permission = get_user_input(PERMISSION_PROMPT).strip.upcase
 
     if permission == 'Y'
       Student.new(age, name)
@@ -83,23 +88,23 @@ class App
 
   def create_teacher
     print 'Name: '
-    name = gets.chomp
+    name = get_user_input(NAME_PROMPT)
 
     print 'Age: '
-    age = gets.chomp.to_i
+    age = get_user_input(AGE_PROMPT).to_i
 
     print 'Specialization: '
-    specialization = gets.chomp
+    specialization = get_user_input(SPECIALIZATION_PROMPT)
 
     Teacher.new(age, name, specialization)
   end
 
   def create_book
     print 'Enter the book title: '
-    title = gets.chomp
+    title = get_user_input(BOOK_TITLE_PROMPT)
 
     print 'Enter the book author: '
-    author = gets.chomp
+    author = get_user_input(BOOK_AUTHOR_PROMPT)
 
     book = Book.new(title, author)
     @books << book
@@ -115,7 +120,7 @@ class App
     person = select_person
 
     print 'Enter the rental date (YYYY/MM/DD): '
-    date = gets.chomp
+    date = get_user_input(RENTAL_DATE_PROMPT)
     rental = Rental.new(date, book, person)
     @rentals << rental
 
@@ -142,6 +147,8 @@ class App
     end
   end
 
+  private
+
   def select_person
     loop do
       puts "\nSelect a person from the following list by number#{unless @people.length == 1
@@ -159,7 +166,7 @@ class App
   def select_person_type
     loop do
       print "\nDo you want to create a student (1) or a teacher (2)? [Input the number]: "
-      person_type = gets.chomp.to_i
+      person_type = get_user_input(PEOPLE_TYPE_PROMPT).to_i
 
       return person_type if valid_index?(person_type, [1, 2])
 
@@ -181,5 +188,10 @@ class App
 
   def valid_index?(index, array)
     index.between?(0, array.length - 1)
+  end
+
+  def get_user_input(prompt)
+    print prompt
+    gets.chomp
   end
 end
