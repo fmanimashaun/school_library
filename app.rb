@@ -146,9 +146,17 @@ class App
                                                                    " [0 - #{@people.length - 1}]"
                                                                  end} (not id)"
       list_people
-      person_index = gets.chomp.to_i
+      raw_input = gets.chomp
 
-      return @people[person_index] if valid_index?(person_index, @people)
+      # Attempt to convert the raw input to an integer
+      begin
+        person_index = Integer(raw_input)
+      rescue ArgumentError
+        puts "\nInvalid input. Please enter a valid number."
+        next
+      end
+
+      return @people[person_index] if is_in_array?(person_index, (0...@people.size))
 
       puts "\nInvalid selection. Please enter a valid number."
     end
@@ -166,7 +174,7 @@ class App
         next
       end
 
-      return person_type if valid_index?(person_type, [1, 2])
+      return person_type if is_in_array?(person_type, [1, 2])
 
       puts "\nInvalid selection. Please enter a valid number."
     end
@@ -177,7 +185,7 @@ class App
     loop do
       puts "\nSelect a book from the following list by number#{"[0 - #{@books.length - 1}]" unless @books.length == 1}"
       list_books
-      raw_input = gets.chomp.to_i
+      raw_input = gets.chomp
 
       # Attempt to convert the raw input to an integer
       begin
@@ -187,14 +195,14 @@ class App
         next
       end
 
-      return @books[book_index] if valid_index?(book_index, @books)
+      return @books[book_index] if is_in_array?(book_index, (0...@books.size))
 
       puts "\nInvalid selection. Please enter a valid number."
     end
   end
 
-  def valid_index?(index, array)
-    index.between?(0, array.length - 1)
+  def is_in_array?(number, array)
+    array.include?(number)
   end
 
   def get_user_input(prompt)
