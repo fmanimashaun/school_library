@@ -6,7 +6,6 @@ class Menu
   end
 
   def self.display
-    clear_screen
     puts "\nWelcome to School Library Home Page!"
     puts 'Please enter a number: '
     puts '1 - List all books'
