@@ -8,7 +8,7 @@ class Main
 
     while option != 7
       Menu.display
-      option = get_user_input
+      option = user_input
       handle_option(app, option)
     end
 
@@ -16,7 +16,7 @@ class Main
     Menu.clear_screen
   end
 
-  def get_user_input
+  def user_input
     gets.chomp.to_i
   end
 
