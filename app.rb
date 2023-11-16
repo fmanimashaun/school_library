@@ -148,7 +148,6 @@ class App
       list_people
       raw_input = gets.chomp
 
-      # Attempt to convert the raw input to an integer
       begin
         person_index = Integer(raw_input)
       rescue ArgumentError
@@ -166,7 +165,6 @@ class App
     loop do
       raw_input = get_user_input(PEOPLE_TYPE_PROMPT)
 
-      # Attempt to convert the raw input to an integer
       begin
         person_type = Integer(raw_input)
       rescue ArgumentError
@@ -186,7 +184,6 @@ class App
       list_books
       raw_input = gets.chomp
 
-      # Attempt to convert the raw input to an integer
       begin
         book_index = Integer(raw_input)
       rescue ArgumentError
