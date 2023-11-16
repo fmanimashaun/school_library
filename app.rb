@@ -17,6 +17,7 @@ class App
   BOOK_AUTHOR_PROMPT = 'Enter the book author: '.freeze
   RENTAL_DATE_PROMPT = 'Enter the rental date (YYYY/MM/DD): '.freeze
   PEOPLE_TYPE_PROMPT = 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '.freeze
+  PERSON_ID_PROMPT = 'ID of person: '.freeze
 
   attr_accessor :people, :books, :rentals
 
@@ -70,13 +71,10 @@ class App
   end
 
   def create_student
-    print 'Name: '
     name = get_user_input(NAME_PROMPT)
 
-    print 'Age: '
     age = get_user_input(AGE_PROMPT).to_i
 
-    print 'Has parent permission? [Y/N]: '
     permission = get_user_input(PERMISSION_PROMPT).strip.upcase
 
     if permission == 'Y'
@@ -87,23 +85,18 @@ class App
   end
 
   def create_teacher
-    print 'Name: '
     name = get_user_input(NAME_PROMPT)
 
-    print 'Age: '
     age = get_user_input(AGE_PROMPT).to_i
 
-    print 'Specialization: '
     specialization = get_user_input(SPECIALIZATION_PROMPT)
 
     Teacher.new(age, name, specialization)
   end
 
   def create_book
-    print 'Enter the book title: '
     title = get_user_input(BOOK_TITLE_PROMPT)
 
-    print 'Enter the book author: '
     author = get_user_input(BOOK_AUTHOR_PROMPT)
 
     book = Book.new(title, author)
@@ -119,7 +112,6 @@ class App
     book = select_book
     person = select_person
 
-    print 'Enter the rental date (YYYY/MM/DD): '
     date = get_user_input(RENTAL_DATE_PROMPT)
     rental = Rental.new(date, book, person)
     @rentals << rental
@@ -132,8 +124,7 @@ class App
 
     list_people
 
-    print 'ID of person: '
-    person_id = gets.chomp.to_i
+    person_id = get_user_input(PERSON_ID_PROMPT).to_i
 
     rent_list = @rentals.select { |rental| rental.person.id == person_id }
 
