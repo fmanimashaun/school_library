@@ -54,7 +54,7 @@ class App
   end
 
   def create_person
-    person_type = select_person_type
+    person_type = get_user_input(PEOPLE_TYPE_PROMPT)
 
     person =
       if person_type == 1
@@ -109,8 +109,18 @@ class App
     return puts "\nNo books available." if @books.empty?
     return puts "\nNo people available." if @people.empty?
 
-    book = select_book
-    person = select_person
+    puts "\nSelect a book from the following list by number#{"[0 - #{@books.length - 1}]" unless @books.length == 1}"
+
+    list_books
+
+    book = gets.chomp.to_i
+
+    puts "\nSelect a person from the following list by number#{unless @people.length == 1
+                                                                 " [0 - #{@people.length - 1}]"
+                                                               end} (not id)"
+    list_people
+
+    person = gets.chomp.to_i
 
     date = get_user_input(RENTAL_DATE_PROMPT)
     rental = Rental.new(date, book, person)
@@ -139,67 +149,6 @@ class App
   end
 
   private
-
-  def select_person
-    loop do
-      puts "\nSelect a person from the following list by number#{unless @people.length == 1
-                                                                   " [0 - #{@people.length - 1}]"
-                                                                 end} (not id)"
-      list_people
-      raw_input = gets.chomp
-
-      begin
-        person_index = Integer(raw_input)
-      rescue ArgumentError
-        puts "\nInvalid input. Please enter a valid number."
-        next
-      end
-
-      return @people[person_index] if in_array?(person_index, (0...@people.size))
-
-      puts "\nInvalid selection. Please enter a valid number."
-    end
-  end
-
-  def select_person_type
-    loop do
-      raw_input = get_user_input(PEOPLE_TYPE_PROMPT)
-
-      begin
-        person_type = Integer(raw_input)
-      rescue ArgumentError
-        puts "\nInvalid input. Please enter a valid number."
-        next
-      end
-
-      return person_type if in_array?(person_type, [1, 2])
-
-      puts "\nInvalid selection. Please enter a valid number."
-    end
-  end
-
-  def select_book
-    loop do
-      puts "\nSelect a book from the following list by number#{"[0 - #{@books.length - 1}]" unless @books.length == 1}"
-      list_books
-      raw_input = gets.chomp
-
-      begin
-        book_index = Integer(raw_input)
-      rescue ArgumentError
-        puts "\nInvalid input. Please enter a valid number."
-        next
-      end
-
-      return @books[book_index] if in_array?(book_index, (0...@books.size))
-
-      puts "\nInvalid selection. Please enter a valid number."
-    end
-  end
-
-  def in_array?(number, array)
-    array.include?(number)
-  end
 
   def get_user_input(prompt)
     print prompt
