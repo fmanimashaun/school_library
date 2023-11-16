@@ -48,17 +48,20 @@ class App
   end
 
   def create_person
-    print "\nDo you want to create a student (1) or a teacher (2)? [Input the number]: "
-    person_type = gets.chomp.to_i
+    person_type = select_person_type
 
-    case person_type
-    when 1
-      create_student
-    when 2
-      create_teacher
-    else
-      puts 'Invalid option, person not created'
-    end
+    person =
+      if person_type == 1
+        create_student
+      elsif person_type == 2
+        create_teacher
+      else
+        puts "\nInvalid option, person not created"
+      end
+
+    @people << person
+
+    puts "\nPerson created successfully"
   end
 
   def create_student
@@ -71,17 +74,10 @@ class App
     print 'Has parent permission? [Y/N]: '
     permission = gets.chomp.strip.upcase
 
-    case permission
-    when 'Y'
-      student = Student.new(age, name)
-      @people << student
-      puts "\nPerson created successfully"
-    when 'N'
-      student = Student.new(age, name, parent_permission: false)
-      @people << student
-      puts "\nPerson created successfully"
+    if permission == 'Y'
+      Student.new(age, name)
     else
-      puts "\nInvalid option. Student not created."
+      Student.new(age, name, parent_permission: false)
     end
   end
 
@@ -95,10 +91,7 @@ class App
     print 'Specialization: '
     specialization = gets.chomp
 
-    teacher = Teacher.new(age, name, specialization)
-    @people << teacher
-
-    puts "\nPerson created successfully"
+    Teacher.new(age, name, specialization)
   end
 
   def create_book
@@ -158,6 +151,17 @@ class App
       person_index = gets.chomp.to_i
 
       return @people[person_index] if valid_index?(person_index, @people)
+
+      puts "\nInvalid selection. Please enter a valid number."
+    end
+  end
+
+  def select_person_type
+    loop do
+      print "\nDo you want to create a student (1) or a teacher (2)? [Input the number]: "
+      person_type = gets.chomp.to_i
+
+      return person_type if valid_index?(person_type, [1, 2])
 
       puts "\nInvalid selection. Please enter a valid number."
     end
