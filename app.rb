@@ -165,8 +165,15 @@ class App
 
   def select_person_type
     loop do
-      print "\nDo you want to create a student (1) or a teacher (2)? [Input the number]: "
-      person_type = get_user_input(PEOPLE_TYPE_PROMPT).to_i
+      raw_input = get_user_input(PEOPLE_TYPE_PROMPT)
+
+      # Attempt to convert the raw input to an integer
+      begin
+        person_type = Integer(raw_input)
+      rescue ArgumentError
+        puts "\nInvalid input. Please enter a valid number."
+        next
+      end
 
       return person_type if valid_index?(person_type, [1, 2])
 
@@ -174,11 +181,20 @@ class App
     end
   end
 
+
   def select_book
     loop do
       puts "\nSelect a book from the following list by number#{"[0 - #{@books.length - 1}]" unless @books.length == 1}"
       list_books
-      book_index = gets.chomp.to_i
+      raw_input = gets.chomp.to_i
+
+      # Attempt to convert the raw input to an integer
+      begin
+        book_index = Integer(raw_input)
+      rescue ArgumentError
+        puts "\nInvalid input. Please enter a valid number."
+        next
+      end
 
       return @books[book_index] if valid_index?(book_index, @books)
 
