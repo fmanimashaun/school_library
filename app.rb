@@ -54,7 +54,7 @@ class App
   end
 
   def create_person
-    person_type = get_user_input(PEOPLE_TYPE_PROMPT)
+    person_type = get_user_input(PEOPLE_TYPE_PROMPT).to_i
 
     person =
       if person_type == 1
@@ -63,6 +63,7 @@ class App
         create_teacher
       else
         puts "\nInvalid option, person not created"
+        return
       end
 
     @people << person
