@@ -156,7 +156,7 @@ class App
         next
       end
 
-      return @people[person_index] if is_in_array?(person_index, (0...@people.size))
+      return @people[person_index] if in_array?(person_index, (0...@people.size))
 
       puts "\nInvalid selection. Please enter a valid number."
     end
@@ -174,12 +174,11 @@ class App
         next
       end
 
-      return person_type if is_in_array?(person_type, [1, 2])
+      return person_type if in_array?(person_type, [1, 2])
 
       puts "\nInvalid selection. Please enter a valid number."
     end
   end
-
 
   def select_book
     loop do
@@ -195,13 +194,13 @@ class App
         next
       end
 
-      return @books[book_index] if is_in_array?(book_index, (0...@books.size))
+      return @books[book_index] if in_array?(book_index, (0...@books.size))
 
       puts "\nInvalid selection. Please enter a valid number."
     end
   end
 
-  def is_in_array?(number, array)
+  def in_array?(number, array)
     array.include?(number)
   end
 
