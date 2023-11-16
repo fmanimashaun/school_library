@@ -114,14 +114,18 @@ class App
 
     list_books
 
-    book = gets.chomp.to_i
+    book_index = gets.chomp.to_i
+
+    book = @books[book_index]
 
     puts "\nSelect a person from the following list by number#{unless @people.length == 1
                                                                  " [0 - #{@people.length - 1}]"
                                                                end} (not id)"
     list_people
 
-    person = gets.chomp.to_i
+    person_index = gets.chomp.to_i
+
+    person = @people[person_index]
 
     date = get_user_input(RENTAL_DATE_PROMPT)
     rental = Rental.new(date, book, person)
