@@ -7,8 +7,11 @@ require './classroom'
 require './decorator'
 require './capitalize_decorator'
 require './trimmer_decorator'
+require './store'
 
 class App
+  include Store
+
   NAME_PROMPT = 'Name: '.freeze
   AGE_PROMPT = 'Age: '.freeze
   PERMISSION_PROMPT = 'Has parent permission? [Y/N]: '.freeze

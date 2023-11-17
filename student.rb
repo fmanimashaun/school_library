@@ -16,4 +16,11 @@ class Student < Person
   def play_hooky
     '¯\(ツ)/¯'
   end
+
+  def to_h
+    classroom_label = @classroom.label
+    super.merge({
+                  classroom: classroom_label
+                })
+  end
 end

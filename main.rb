@@ -4,6 +4,9 @@ require './menu'
 class Main
   def start
     app = App.new
+    app.load_people
+    app.load_books
+    app.load_rentals
     option = 1
 
     while option != 7
@@ -13,6 +16,11 @@ class Main
     end
 
     puts "\nThanks for using the School Library App!"
+
+    app.save_people
+    app.save_books
+    app.save_rentals
+
     Menu.clear_screen
   end
 
