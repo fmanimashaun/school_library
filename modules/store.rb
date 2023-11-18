@@ -43,8 +43,8 @@ module Store
     return unless File.exist?('data/rentals.json')
 
     JSON.parse(File.read('data/rentals.json')).map do |rental|
-      person = @people.find { |person_object| person_object.person_id == rental['person'] }
-      book = @books.find { |book_object| book_object.id == rental['book'] }
+      person = @people.find { |person_object| person_object.person == rental['person'] }
+      book = @books.find { |book_object| book_object.book == rental['book'] }
       @rentals << Rental.new(rental['date'], book, person)
     end
   end
