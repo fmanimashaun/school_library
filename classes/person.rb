@@ -35,6 +35,12 @@ class Person < Nameable
     }
   end
 
+  def self.json_create(object)
+    new(object['age'], object['name'], parent_permission: object['parent_permission']).tap do |instance|
+      instance.instance_variable_set(:@id, object['id'])
+    end
+  end
+
   private
 
   def of_age?
