@@ -13,11 +13,12 @@ class Rental
     person.rentals << self
   end
 
-  def to_hash
+  def to_json
     {
-      date: @date,
-      book_title: @book.title,
-      person_id: @person.id
-    }
+      'json_class' => self.class.name,
+      'date' => @date,
+      'book' => @book.id,
+      'person' => @person.id
+    }.to_json
   end
 end
