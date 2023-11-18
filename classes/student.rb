@@ -35,5 +35,4 @@ class Student < Person
     student.classroom = Classroom.json_create(object['classroom']) if object['classroom']
     student
   end
-
 end

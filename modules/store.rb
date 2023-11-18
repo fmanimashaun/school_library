@@ -29,7 +29,7 @@ module Store
     return unless File.exist?('data/books.json')
 
     JSON.parse(File.read('data/books.json')).map do |book|
-     book_obj = JSON.parse(book, create_additions: true)
+      book_obj = JSON.parse(book, create_additions: true)
       @books << book_obj
     end
   end
