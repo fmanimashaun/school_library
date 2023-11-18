@@ -22,6 +22,6 @@ class Teacher < Person
   end
 
   def self.json_create(object)
-    new(object['age'], object['name'], object['specialization'], id: object['id'])
+    new(object['age'], object['specialization'], object['name'], id: object['id'])
   end
 end

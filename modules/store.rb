@@ -12,8 +12,9 @@ module Store
   def load_people
     return unless File.exist?('data/people.json')
 
-    JSON.parse(File.read('data/people.json'), create_additions: true).map do |person|
-      @people << person
+    JSON.parse(File.read('data/people.json')).map do |person|
+      person_obj = JSON.parse(person, create_additions: true)
+      @people << person_obj
     end
   end
 
@@ -27,8 +28,9 @@ module Store
   def load_books
     return unless File.exist?('data/books.json')
 
-    JSON.parse(File.read('data/books.json'), create_additions: true).map do |book|
-      @books << book
+    JSON.parse(File.read('data/books.json')).map do |book|
+     book_obj = JSON.parse(book, create_additions: true)
+      @books << book_obj
     end
   end
 
@@ -43,9 +45,10 @@ module Store
     return unless File.exist?('data/rentals.json')
 
     JSON.parse(File.read('data/rentals.json')).map do |rental|
-      person = @people.find { |person_object| person_object.id == rental['person'] }
-      book = @books.find { |book_object| book_object.id == rental['book'] }
-      @rentals << Rental.new(rental['date'], book, person)
+      rental_obj = JSON.parse(rental)
+      book = @books.find { |b| b.id == rental_obj['book'] }
+      person = @people.find { |p| p.id == rental_obj['person'] }
+      @rentals << Rental.new(rental_obj['date'], book, person)
     end
   end
 end

@@ -21,7 +21,7 @@ class Book
       'json_class' => self.class.name,
       'id' => @id,
       'title' => @title,
-      'author' => @author
+      'author' => @author,
     }.to_json
   end
 

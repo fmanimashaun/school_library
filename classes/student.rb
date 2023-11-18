@@ -32,7 +32,8 @@ class Student < Person
 
   def self.json_create(object)
     student = new(object['age'], object['name'], parent_permission: object['parent_permission'], id: object['id'])
-    student.classroom = object['classroom'] if object['classroom']
+    student.classroom = Classroom.json_create(object['classroom']) if object['classroom']
     student
   end
+
 end

@@ -6,7 +6,7 @@ class Main
     app = App.new
     app.load_people
     app.load_books
-    # app.load_rentals
+    app.load_rentals
     option = 1
 
     while option != 7
