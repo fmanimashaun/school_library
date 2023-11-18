@@ -1,14 +1,17 @@
-require './person'
-require './student'
-require './teacher'
-require './book'
-require './rental'
-require './classroom'
-require './decorator'
-require './capitalize_decorator'
-require './trimmer_decorator'
+require_relative 'classes/person'
+require_relative 'classes/student'
+require_relative 'classes/teacher'
+require_relative 'classes/book'
+require_relative 'classes/rental'
+require_relative 'classes/classroom'
+require_relative 'classes/decorator'
+require_relative 'classes/capitalize_decorator'
+require_relative 'classes/trimmer_decorator'
+require_relative 'modules/store'
 
 class App
+  include Store
+
   NAME_PROMPT = 'Name: '.freeze
   AGE_PROMPT = 'Age: '.freeze
   PERMISSION_PROMPT = 'Has parent permission? [Y/N]: '.freeze
@@ -92,7 +95,7 @@ class App
 
     specialization = get_user_input(SPECIALIZATION_PROMPT)
 
-    Teacher.new(age, name, specialization)
+    Teacher.new(age, specialization, name)
   end
 
   def create_book
