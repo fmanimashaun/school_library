@@ -1,13 +1,14 @@
 require_relative 'nameable'
 require_relative 'rental'
+require 'json'
 
 class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age, :rentals
 
-  def initialize(age, name = 'unknown', parent_permission: true)
+  def initialize(age, name = 'unknown', parent_permission: true, id: Random.rand(1..1000))
     super()
-    @id = Random.rand(1..1000)
+    @id = id
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -26,19 +27,18 @@ class Person < Nameable
     Rental.new(date, book, self)
   end
 
-  def to_hash
+  def to_json
     {
+      'json_class' => self.class.name,
       'id' => @id,
       'name' => @name,
       'age' => @age,
       'parent_permission' => @parent_permission
-    }
+  }.to_json
   end
 
   def self.json_create(object)
-    new(object['age'], object['name'], parent_permission: object['parent_permission']).tap do |instance|
-      instance.instance_variable_set(:@id, object['id'])
-    end
+    new(object['age'], object['name'], parent_permission: object['parent_permission'], id: object['id'])
   end
 
   private
