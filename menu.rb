@@ -1,5 +1,3 @@
-# menu.rb
-
 class Menu
   def self.clear_screen
     system('clear')
