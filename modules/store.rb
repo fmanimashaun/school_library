@@ -15,7 +15,6 @@ module Store
     JSON.parse(File.read('data/people.json'), create_additions: true).map do |person|
       @people << person
     end
-    puts @people
   end
 
   def save_books
