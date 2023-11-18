@@ -6,7 +6,7 @@ module Store
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/people.json', JSON.dump(@people.map(&:to_hash)))
+    File.write('data/people.json', JSON.dump(@people.map(&:to_json)))
   end
 
   def load_people
@@ -21,7 +21,7 @@ module Store
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/books.json', JSON.dump(@books.map(&:to_hash)))
+    File.write('data/books.json', JSON.dump(@books.map(&:to_json)))
   end
 
   def load_books
@@ -36,15 +36,15 @@ module Store
     # Ensure the 'data' directory exists
     FileUtils.mkdir_p('data')
 
-    File.write('data/rentals.json', JSON.dump(@rentals.map(&:to_hash)))
+    File.write('data/rentals.json', JSON.dump(@rentals.map(&:to_json)))
   end
 
   def load_rentals
     return unless File.exist?('data/rentals.json')
 
     JSON.parse(File.read('data/rentals.json')).map do |rental|
-      person = @people.find { |person_object| person_object.person == rental['person'] }
-      book = @books.find { |book_object| book_object.book == rental['book'] }
+      person = @people.find { |person_object| person_object.id == rental['person'] }
+      book = @books.find { |book_object| book_object.id == rental['book'] }
       @rentals << Rental.new(rental['date'], book, person)
     end
   end

@@ -2,7 +2,7 @@ require_relative 'person'
 require 'json'
 
 class Teacher < Person
-  def initialize(age, name = 'unknown', specialization, id: Random.rand(1..1000))
+  def initialize(age, specialization, name = 'unknown', id: Random.rand(1..1000))
     super(age, name, id: id)
     @specialization = specialization
   end

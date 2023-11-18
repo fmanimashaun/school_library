@@ -95,7 +95,7 @@ class App
 
     specialization = get_user_input(SPECIALIZATION_PROMPT)
 
-    Teacher.new(age, name, specialization)
+    Teacher.new(age, specialization, name)
   end
 
   def create_book
