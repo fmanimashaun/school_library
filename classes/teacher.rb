@@ -11,7 +11,7 @@ class Teacher < Person
     true
   end
 
-  def to_json
+  def to_json(*_args)
     {
       'json_class' => self.class.name,
       'id' => @id,

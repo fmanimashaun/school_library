@@ -5,7 +5,7 @@ class Book
   attr_accessor :title, :author, :rentals
   attr_reader :id
 
-  def initialize(title, author,  id: Random.rand(1..1000))
+  def initialize(title, author, id: Random.rand(1..1000))
     @id = id
     @title = title
     @author = author
@@ -16,13 +16,13 @@ class Book
     Rental.new(date, self, person)
   end
 
-  def to_json
+  def to_json(*_args)
     {
       'json_class' => self.class.name,
       'id' => @id,
       'title' => @title,
       'author' => @author
-  }.to_json
+    }.to_json
   end
 
   def self.json_create(object)
