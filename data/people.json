@@ -1,13 +1,1 @@
-[
-  "{\"json_class\":\"Student\",\"id\":1,\"name\":\"Alice Johnson\",\"age\":20,\"parent_permission\":true}",
-  "{\"json_class\":\"Teacher\",\"id\":2,\"name\":\"John Smith\",\"age\":35,\"specialization\":\"Mathematics\"}",
-  "{\"json_class\":\"Student\",\"id\":3,\"name\":\"Emily Davis\",\"age\":22,\"parent_permission\":true}",
-  "{\"json_class\":\"Teacher\",\"id\":4,\"name\":\"Michael Miller\",\"age\":40,\"specialization\":\"History\"}",
-  "{\"json_class\":\"Student\",\"id\":5,\"name\":\"David Wilson\",\"age\":21,\"parent_permission\":false}",
-  "{\"json_class\":\"Teacher\",\"id\":6,\"name\":\"Olivia Brown\",\"age\":38,\"specialization\":\"Science\"}",
-  "{\"json_class\":\"Student\",\"id\":7,\"name\":\"Ethan Taylor\",\"age\":23,\"parent_permission\":true}",
-  "{\"json_class\":\"Teacher\",\"id\":8,\"name\":\"Sophia Martinez\",\"age\":42,\"specialization\":\"English\"}",
-  "{\"json_class\":\"Student\",\"id\":9,\"name\":\"Aiden Jackson\",\"age\":19,\"parent_permission\":true}",
-  "{\"json_class\":\"Teacher\",\"id\":10,\"name\":\"Emma Harris\",\"age\":37,\"specialization\":\"Art\"}",
-  "{\"json_class\":\"Teacher\",\"id\":692,\"name\":\"Prof Smith\",\"age\":34,\"specialization\":\"English\"}"
-]
+["{\"json_class\":\"Student\",\"id\":1,\"name\":\"Alice Johnson\",\"age\":20,\"parent_permission\":true}","{\"json_class\":\"Teacher\",\"id\":2,\"name\":\"John Smith\",\"age\":35,\"specialization\":\"Mathematics\"}","{\"json_class\":\"Student\",\"id\":3,\"name\":\"Emily Davis\",\"age\":22,\"parent_permission\":true}","{\"json_class\":\"Teacher\",\"id\":4,\"name\":\"Michael Miller\",\"age\":40,\"specialization\":\"History\"}","{\"json_class\":\"Student\",\"id\":5,\"name\":\"David Wilson\",\"age\":21,\"parent_permission\":false}","{\"json_class\":\"Teacher\",\"id\":6,\"name\":\"Olivia Brown\",\"age\":38,\"specialization\":\"Science\"}","{\"json_class\":\"Student\",\"id\":7,\"name\":\"Ethan Taylor\",\"age\":23,\"parent_permission\":true}","{\"json_class\":\"Teacher\",\"id\":8,\"name\":\"Sophia Martinez\",\"age\":42,\"specialization\":\"English\"}","{\"json_class\":\"Student\",\"id\":9,\"name\":\"Aiden Jackson\",\"age\":19,\"parent_permission\":true}","{\"json_class\":\"Teacher\",\"id\":10,\"name\":\"Emma Harris\",\"age\":37,\"specialization\":\"Art\"}","{\"json_class\":\"Teacher\",\"id\":692,\"name\":\"Prof Smith\",\"age\":34,\"specialization\":\"English\"}"]
