@@ -11,8 +11,8 @@ describe Teacher do
 
   context 'Test the to_json method in Teacher' do
     it 'passes the info as a json format to store' do
-      expect(teacher.to_json).to eq('{"json_class":"Teacher","id":1,
-                                    "name":"Jane Doe","age":"Math","specialization":34}')
+      result = '{"json_class":"Teacher","id":1,"name":"Jane Doe","age":"Math","specialization":34}'
+      expect(teacher.to_json).to eq(result)
     end
   end
 end
